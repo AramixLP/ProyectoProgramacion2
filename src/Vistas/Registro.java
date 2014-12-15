@@ -3,6 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package Vistas;
 
 import java.awt.Color;
@@ -12,11 +13,8 @@ import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
-<<<<<<< HEAD
 import javax.swing.JOptionPane;
-=======
 import proyectoprogramacion2.Perecedero;
->>>>>>> origin/master
 import proyectoprogramacion2.Producto;
 import proyectoprogramacion2.Proveedor;
 
@@ -25,26 +23,17 @@ import proyectoprogramacion2.Proveedor;
  * @author kate
  */
 public class Registro extends javax.swing.JFrame {
+    private ArrayList<Producto> productos = new ArrayList(); 
+    boolean producto = true;
 
-    private ArrayList<Producto> productos = new ArrayList();
-    boolean producto = false;
-   
     /**
      * Creates new form Registro
      */
     public Registro() {
         initComponents();
-<<<<<<< HEAD
-        setLocationRelativeTo(null);
-        setTitle("Registro de Producto");
-        
+        updateState();
     }
     
-    public void setProducto(boolean producto) {
-        this.producto = producto;
-        producto = true;
-    }
-
     private boolean validaCampos() {
         boolean campo = true;
 
@@ -70,9 +59,7 @@ public class Registro extends javax.swing.JFrame {
             }
         }
         return campo;
-=======
-        updateState();
->>>>>>> origin/master
+
     }
 
     /**
@@ -318,79 +305,67 @@ public class Registro extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-<<<<<<< HEAD
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-         if(producto){           
-           if(this.validaCampos()){
-=======
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
-         
->>>>>>> origin/master
-        int codigo = Integer.parseInt(txtCodigo.getText());
-        String nombre = txtNombre.getText();
-        int cantidadInicial = Integer.parseInt(txtCantidadInicial.getText());
-        int cantidad = Integer.parseInt(txtCantidad.getText());
-        double porcentajeGanancia = Double.parseDouble(txtPorcentajeGanancia.getText());
-        double costo = Double.parseDouble(txtCosto.getText());
-        String tipo = cmbTipo.getSelectedItem().toString();
-        String proveedor = cmbProveedor.getSelectedItem().toString();
         
-<<<<<<< HEAD
-        productos.add(new Producto(costo, codigo, nombre, cantidad, cantidadInicial));
-              
-           }else{
-               JOptionPane.showMessageDialog(null,"Debe llenar los campos en blanco");
-           }
-       
-         }
-    }//GEN-LAST:event_jButton1ActionPerformed
-=======
-        if (cmbTipo.equals("Producto"))
-            productos.add(new Producto(costo, codigo, nombre, cantidad, cantidadInicial));
-        else if (cmbTipo.equals("Perecedero")) {
-            String fechaExp = txtFechaExp.getText();
-            Double temperatura = Double.parseDouble(txtTemperatura.getText());
-            Double costoAdicional = Double.parseDouble(txtCostoAdicional.getText());
-            productos.add(new Perecedero(fechaExp, temperatura, costoAdicional, costo, codigo, nombre, cantidadInicial, cantidad));
+        if(producto){           
+            if(this.validaCampos()){
+                int codigo = Integer.parseInt(txtCodigo.getText());
+                String nombre = txtNombre.getText();
+                int cantidadInicial = Integer.parseInt(txtCantidadInicial.getText());
+                int cantidad = Integer.parseInt(txtCantidad.getText());
+                double porcentajeGanancia = Double.parseDouble(txtPorcentajeGanancia.getText());
+                double costo = Double.parseDouble(txtCosto.getText());
+                String tipo = cmbTipo.getSelectedItem().toString();
+                String proveedor = cmbProveedor.getSelectedItem().toString();
+
+                if (cmbTipo.equals("Producto"))
+                    productos.add(new Producto(costo, codigo, nombre, cantidad, cantidadInicial));
+                else if (cmbTipo.equals("Perecedero")) {
+                    String fechaExp = txtFechaExp.getText();
+                    Double temperatura = Double.parseDouble(txtTemperatura.getText());
+                    Double costoAdicional = Double.parseDouble(txtCostoAdicional.getText());
+                    productos.add(new Perecedero(fechaExp, temperatura, costoAdicional, costo, codigo, nombre, cantidadInicial, cantidad));
+                } 
+            } 
+            else {
+                JOptionPane.showMessageDialog(null,"Debe llenar los campos en blanco");
+            }
         }
     }//GEN-LAST:event_btnAgregarActionPerformed
->>>>>>> origin/master
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        try {
-            File file = new File("productos");
-            if (file.exists()) {
-                FileInputStream in = new FileInputStream(file);
-                ObjectInputStream entrada = new ObjectInputStream(in);
-                productos = (ArrayList<Producto>) entrada.readObject();
-
+                try {
+        File file = new File("productos");
+            if(file.exists()){
+                FileInputStream in = new FileInputStream(file);       
+                ObjectInputStream entrada = new ObjectInputStream(in);        
+                productos  = (ArrayList<Producto>)entrada.readObject();
+         
                 entrada.close();
-            } else {
+            }else{
                 throw new Exception();
             }
-        } catch (Exception ex) {
+        } catch(Exception ex) {
             System.out.println("Error al recuperar el archivo");
         }
     }//GEN-LAST:event_formWindowOpened
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-        try {
-
-            File file = new File("productos");
-            FileOutputStream in = new FileOutputStream(file);
-            ObjectOutputStream salida = new ObjectOutputStream(in);
-
-            salida.writeObject(productos);
-
-            salida.close();
-
-        } catch (Exception e) {
-
-        }
+                try {
+        
+                File file = new File("productos");
+                FileOutputStream in = new FileOutputStream(file);
+                ObjectOutputStream salida = new ObjectOutputStream(in);
+                    
+                salida.writeObject(productos); 
+                                      
+                salida.close();
+                
+            } catch (Exception e) {
+                
+            }
     }//GEN-LAST:event_formWindowClosing
 
-<<<<<<< HEAD
-=======
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
         for (Producto p: productos) {
             if (p.getCodigo() == txtCodigo.getText()) {
@@ -430,7 +405,6 @@ public class Registro extends javax.swing.JFrame {
     jLabel13.setEnabled(enabled );
 }
     
->>>>>>> origin/master
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgregar;

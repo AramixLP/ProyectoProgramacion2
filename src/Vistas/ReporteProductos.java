@@ -35,6 +35,8 @@ public class ReporteProductos extends javax.swing.JFrame {
         setTitle("Reporte de Productos");
         sis = new Sistema();
     }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
