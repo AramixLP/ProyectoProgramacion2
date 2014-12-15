@@ -6,6 +6,7 @@
 
 package Vistas;
 
+import java.awt.Color;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -28,6 +29,7 @@ public class Registro extends javax.swing.JFrame {
      */
     public Registro() {
         initComponents();
+        updateState();
     }
 
     /**
@@ -92,7 +94,7 @@ public class Registro extends javax.swing.JFrame {
 
         jLabel8.setText("Proveedor:");
 
-        cmbTipo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Perecedero", "Producto", "" }));
+        cmbTipo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "...", "Perecedero", "Producto" }));
         cmbTipo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbTipoActionPerformed(evt);
@@ -112,6 +114,12 @@ public class Registro extends javax.swing.JFrame {
 
         jLabel10.setText("Código:");
 
+        txtCodigo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCodigoActionPerformed(evt);
+            }
+        });
+
         btnModificar.setText("Modificar");
         btnModificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -120,16 +128,24 @@ public class Registro extends javax.swing.JFrame {
         });
 
         jLabel11.setText("Fecha de Expiracion:");
+        jLabel11.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jLabel12.setText("Temperatura de Camara:");
+        jLabel12.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jLabel13.setText("Costo Adicional:");
+        jLabel13.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
+        txtFechaExp.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         txtFechaExp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtFechaExpActionPerformed(evt);
             }
         });
+
+        txtTemperatura.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
+        txtCostoAdicional.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -138,30 +154,30 @@ public class Registro extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(55, 55, 55)
+                        .addGap(53, 53, 53)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jLabel10))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 234, Short.MAX_VALUE)
+                                    .addComponent(txtCodigo)))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel3)
-                                .addGap(35, 35, 35)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(cmbTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel4)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(txtCantidadInicial, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addGroup(layout.createSequentialGroup()
                                     .addComponent(jLabel5)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(txtCosto))
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                    .addComponent(txtCosto, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createSequentialGroup()
                                     .addComponent(jLabel9)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(txtCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -170,10 +186,10 @@ public class Registro extends javax.swing.JFrame {
                                     .addComponent(jLabel13)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(txtCostoAdicional))
-                                .addGroup(layout.createSequentialGroup()
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                     .addComponent(jLabel12)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(txtTemperatura))
+                                    .addComponent(txtTemperatura, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                     .addComponent(jLabel6)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -187,14 +203,14 @@ public class Registro extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(cmbProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(134, 134, 134)
+                        .addGap(120, 120, 120)
                         .addComponent(btnAgregar)
                         .addGap(18, 18, 18)
                         .addComponent(btnModificar))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(125, 125, 125)
                         .addComponent(jLabel1)))
-                .addContainerGap(65, Short.MAX_VALUE))
+                .addContainerGap(62, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -252,6 +268,10 @@ public class Registro extends javax.swing.JFrame {
                 .addGap(28, 28, 28))
         );
 
+        txtFechaExp.getAccessibleContext().setAccessibleParent(cmbTipo.getComponentPopupMenu());
+        txtTemperatura.getAccessibleContext().setAccessibleParent(cmbTipo);
+        txtCostoAdicional.getAccessibleContext().setAccessibleParent(cmbTipo);
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -265,6 +285,7 @@ public class Registro extends javax.swing.JFrame {
         double costo = Double.parseDouble(txtCosto.getText());
         String tipo = cmbTipo.getSelectedItem().toString();
         String proveedor = cmbProveedor.getSelectedItem().toString();
+        
         if (cmbTipo.equals("Producto"))
             productos.add(new Producto(costo, codigo, nombre, cantidad, cantidadInicial));
         else if (cmbTipo.equals("Perecedero")) {
@@ -319,16 +340,33 @@ public class Registro extends javax.swing.JFrame {
     }//GEN-LAST:event_btnModificarActionPerformed
 
     private void txtFechaExpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFechaExpActionPerformed
-        // TODO add your handling code here:
+        if (cmbTipo.equals("Perecedero")) 
+            txtFechaExp.isVisible();
     }//GEN-LAST:event_txtFechaExpActionPerformed
 
     private void cmbTipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbTipoActionPerformed
-        if (cmbTipo.equals("Pedecedero"))
-            txtFechaExp.setEditable(false);
-            txtTemperatura.setEditable(false);
-            txtCostoAdicional.setEditable(false);
+        updateState();
+        
+        //if (cmbTipo) {
+        //    txtFechaExp.setEditable(true);
+        //    txtTemperatura.setEditable(true);
+        //    txtCostoAdicional.setEditable(true);
+        //}
     }//GEN-LAST:event_cmbTipoActionPerformed
+
+    private void txtCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodigoActionPerformed
+        
+    }//GEN-LAST:event_txtCodigoActionPerformed
     
+    private void updateState() {
+    boolean enabled = cmbTipo.getSelectedItem().equals("Perecedero");
+    txtFechaExp.setEnabled(enabled ); 
+    jLabel11.setEnabled(enabled );
+    txtTemperatura.setEnabled(enabled ); 
+    jLabel12.setEnabled(enabled );
+    txtCostoAdicional.setEnabled(enabled ); 
+    jLabel13.setEnabled(enabled );
+}
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
