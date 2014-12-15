@@ -4,22 +4,22 @@ import java.util.Date;
 
 public class Perecedero extends Producto
 {
-    private Date fechaExpiracion;
+    private String fechaExpiracion;
     private double temperatura;
     private double costoAdicional;
 
-    public Perecedero(Date fechaExp, double temperatura, double costoAdicional, double costo, int codigo, String nombre, int cantidadInicial, int cantidad) {
+    public Perecedero(String fechaExp, double temperatura, double costoAdicional, double costo, int codigo, String nombre, int cantidadInicial, int cantidad) {
         super(costo, codigo, nombre, cantidadInicial, cantidad);
-        this.fechaExpiracion = fechaExpiracion;
+        this.fechaExpiracion = fechaExp;
         this.temperatura = temperatura;
         this.costoAdicional = costoAdicional;
     }
 
-    public Date getFechaExpiracion() {
+    public String getFechaExpiracion() {
         return fechaExpiracion;
     }
 
-    public void setFechaExpiracion(Date fechaExpiracion) {
+    public void setFechaExpiracion(String fechaExpiracion) {
         this.fechaExpiracion = fechaExpiracion;
     }
  
@@ -37,6 +37,10 @@ public class Perecedero extends Producto
 
     public void setCostoAdicional(double costoAdicional) {
         this.costoAdicional = costoAdicional;
+    }
+
+    public void setCantidadInicial(int cantidadInicial) {
+        this.cantidadInicial = cantidadInicial;
     }
     
     
