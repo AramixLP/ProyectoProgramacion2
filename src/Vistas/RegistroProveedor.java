@@ -25,6 +25,8 @@ public class RegistroProveedor extends javax.swing.JFrame {
      */
     public RegistroProveedor() {
         initComponents();
+        setLocationRelativeTo(null);
+        setTitle("Registro de Proveedores");
         
     }
 

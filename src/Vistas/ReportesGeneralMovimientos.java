@@ -1,46 +1,26 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Vistas;
 
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileWriter;
-import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.util.ArrayList;
-import java.util.NoSuchElementException;
-import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import proyectoprogramacion2.Proveedor;
-import proyectoprogramacion2.Sistema;
+import proyectoprogramacion2.Producto;
 
-/**
- *
- * @author kate
- */
-public class ReporteProveedores extends javax.swing.JFrame {
 
-    ArrayList<Proveedor> proveedores = new ArrayList();    
-    Sistema sis;
-    private BufferedWriter writer;
-    private Scanner entrada;
+public class ReportesGeneralMovimientos extends javax.swing.JFrame {
+    
+    ArrayList<Producto> productos = new ArrayList();
 
     /**
-     * Creates new form ReporteProveedores
+     * Creates new form ReportesGeneralMovimientos
      */
-    public ReporteProveedores() {
+    public ReportesGeneralMovimientos() {
         initComponents();
         setLocationRelativeTo(null);
-        setTitle("Reporte de Proveedores");
-        sis = new Sistema();
-        
-        
+        setTitle("Reporte General de Movimientos");
     }
 
     /**
@@ -52,11 +32,11 @@ public class ReporteProveedores extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        btnReporte = new javax.swing.JButton();
+        btnGuardarReporteProducto = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         txtBuscarReporteProducto = new javax.swing.JTextArea();
         jLabel1 = new javax.swing.JLabel();
-        btnReporte = new javax.swing.JButton();
-        btnGuardarReporteProducto = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -64,12 +44,6 @@ public class ReporteProveedores extends javax.swing.JFrame {
                 formWindowOpened(evt);
             }
         });
-
-        txtBuscarReporteProducto.setColumns(20);
-        txtBuscarReporteProducto.setRows(5);
-        jScrollPane2.setViewportView(txtBuscarReporteProducto);
-
-        jLabel1.setText("REPORTE PROVEEDORES");
 
         btnReporte.setText("Ver Reporte");
         btnReporte.addActionListener(new java.awt.event.ActionListener() {
@@ -84,6 +58,12 @@ public class ReporteProveedores extends javax.swing.JFrame {
                 btnGuardarReporteProductoActionPerformed(evt);
             }
         });
+
+        txtBuscarReporteProducto.setColumns(20);
+        txtBuscarReporteProducto.setRows(5);
+        jScrollPane2.setViewportView(txtBuscarReporteProducto);
+
+        jLabel1.setText("REPORTE DE GENERAL DE MOVIMIENTOS");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -100,16 +80,16 @@ public class ReporteProveedores extends javax.swing.JFrame {
                         .addGap(57, 57, 57)
                         .addComponent(btnGuardarReporteProducto))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(136, 136, 136)
+                        .addGap(97, 97, 97)
                         .addComponent(jLabel1)))
                 .addContainerGap(33, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(19, 19, 19)
+                .addContainerGap()
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(14, 14, 14)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -122,103 +102,48 @@ public class ReporteProveedores extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReporteActionPerformed
-        String e="";
-        for(Proveedor p: proveedores){
-            e+=p.informacionProveedor()+"\n";
+        String s = "";//Método para ver la infomación del producto
+        for (Producto p : productos) {//para recorrer el arrayList
+            s += p.informacionProducto();
         }
-        txtBuscarReporteProducto.setText(e);
-        
+        txtBuscarReporteProducto.setText(s);
     }//GEN-LAST:event_btnReporteActionPerformed
 
     private void btnGuardarReporteProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarReporteProductoActionPerformed
-          try {
-            File f = new File("ReporteTabuladoProveedores.txt");
+        try {
+            File f = new File("ReporteGeneralMovimientos.txt");
             FileWriter FW = new FileWriter(f, true);
             BufferedWriter writer = new BufferedWriter(FW);
-            
-            String texto="";
-            for(Proveedor p: proveedores){
-                texto += String.format(p.informacionProveedor());
-            }  
+
+            String texto = "----------REPORTE PRODUCTOS-----------\n";
+
+            for (Producto p : productos) {
+                texto += "\nCodigo: " + p.getCodigo() + "\nProducto: " + p.getNombre() + "\nExistencia: " + p.getCantidad();
+            }
             writer.append(texto);
             writer.close();
+        } catch (Exception e) {
         }
-        catch(NoSuchElementException e ) {
-            System.err.println("El archivo no esta bien formado");
-            System.exit(1);
-        }
-        catch(IllegalStateException e) {
-            System.err.println("Error al leer el archivo");
-            System.exit(1);
-        }
-        catch(FileNotFoundException e) {
-            System.err.println("No se puede encontrar el archivo");
-            System.exit(1);
-        } catch (IOException ex) {
-            Logger.getLogger(ReporteProveedores.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        finally {
-            if (entrada != null ) {
-                entrada.close();
-            }
-        }
-
     }//GEN-LAST:event_btnGuardarReporteProductoActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        try {
-        File file = new File("proveedores");
+        try{
+            File file = new File("productos");
             if(file.exists()){
                 FileInputStream in = new FileInputStream(file);
-        
                 ObjectInputStream entrada = new ObjectInputStream(in);
-        
-                proveedores  = (ArrayList<Proveedor>)entrada.readObject();
-         
+                
+                productos = (ArrayList<Producto>)entrada.readObject();
+                
                 entrada.close();
             }else{
                 throw new Exception();
             }
-        } catch(Exception ex) {
-            txtBuscarReporteProducto.setText("Error al recuperar el archivo");
+        }catch(Exception e){
+             txtBuscarReporteProducto.setText("Error al recuperar el archivo");
         }
-        //AGREGADO
+
     }//GEN-LAST:event_formWindowOpened
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ReporteProveedores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ReporteProveedores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ReporteProveedores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ReporteProveedores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new ReporteProveedores().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnGuardarReporteProducto;

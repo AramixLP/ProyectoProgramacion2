@@ -1,38 +1,28 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package Vistas;
 
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileWriter;
-import java.io.ObjectInputStream;
 import java.util.ArrayList;
 import proyectoprogramacion2.Producto;
 import proyectoprogramacion2.Sistema;
-import proyectoprogramacion2.empresa;
 
 /**
  *
  * @author kate
  */
-public class ReporteProductos extends javax.swing.JFrame {
+public class ReporteSalidas extends javax.swing.JFrame {
+    private ArrayList<Sistema> salidaMercaderia = new ArrayList();
     ArrayList<Producto> productos = new ArrayList();
-    private empresa miEmpresa;
-
     private Sistema sis;
 
     /**
-     * Creates new form NewJFrame
+     * Creates new form ReporteSalidas
      */
-    public ReporteProductos() {
+    public ReporteSalidas() {
         initComponents();
         setLocationRelativeTo(null);
-        setTitle("Reporte de Productos");
+        setTitle("Reporte de Salidas de Mercadería");
         sis = new Sistema();
     }
 
@@ -45,39 +35,31 @@ public class ReporteProductos extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jRadioButton1 = new javax.swing.JRadioButton();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         txtBuscarReporteProducto = new javax.swing.JTextArea();
-        btnReporte = new javax.swing.JButton();
         btnGuardarReporteProducto = new javax.swing.JButton();
-
-        jRadioButton1.setText("jRadioButton1");
+        btnReporte = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowOpened(java.awt.event.WindowEvent evt) {
-                formWindowOpened(evt);
-            }
-        });
 
-        jLabel1.setText("REPORTE PRODUCTOS");
+        jLabel1.setText("REPORTE DE SALIDA");
 
         txtBuscarReporteProducto.setColumns(20);
         txtBuscarReporteProducto.setRows(5);
         jScrollPane2.setViewportView(txtBuscarReporteProducto);
 
-        btnReporte.setText("Ver Reporte");
-        btnReporte.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnReporteActionPerformed(evt);
-            }
-        });
-
         btnGuardarReporteProducto.setText("Guardar Reporte");
         btnGuardarReporteProducto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGuardarReporteProductoActionPerformed(evt);
+            }
+        });
+
+        btnReporte.setText("Ver Reporte");
+        btnReporte.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnReporteActionPerformed(evt);
             }
         });
 
@@ -117,59 +99,35 @@ public class ReporteProductos extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnGuardarReporteProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarReporteProductoActionPerformed
+        try{
+            File f = new File("ReporteSalidas.txt");
+            FileWriter FW = new FileWriter(f,true);
+            BufferedWriter writer = new BufferedWriter(FW);
+
+            String texto= "----------REPORTE PRODUCTOS-----------\n";
+
+            for (Producto p: productos){
+                texto +="\nCodigo: "+p.getCodigo()+"\nProducto: "+p.getNombre()+"\nExistencia: "+p.getCantidad();
+            }
+            writer.append(texto);
+            writer.close();
+        }catch (Exception e){      
+        }
+    }//GEN-LAST:event_btnGuardarReporteProductoActionPerformed
+
     private void btnReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReporteActionPerformed
         String s="";
-        for(Producto p: productos){
-            s+=p.informacionProducto();
+        for(Sistema salida: salidaMercaderia){
+            s+=salida.salidaProducto();
         }
         txtBuscarReporteProducto.setText(s);
     }//GEN-LAST:event_btnReporteActionPerformed
 
-    private void btnGuardarReporteProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarReporteProductoActionPerformed
-        try{
-          File f = new File("ReporteProducto.txt");
-          FileWriter FW = new FileWriter(f,true);
-          BufferedWriter writer = new BufferedWriter(FW);
-          
-          String texto= "----------REPORTE PRODUCTOS-----------\n";
-                  
-                  
-          for (Producto p: productos){
-               texto +="\nCodigo: "+p.getCodigo()+"\nProducto: "+p.getNombre()+"\nExistencia: "+p.getCantidad();
-          }
-          writer.append(texto);
-          writer.close();
-      }catch (Exception e){
-    }//GEN-LAST:event_btnGuardarReporteProductoActionPerformed
-    }
-    
-    
-    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        try{
-            File file = new File("productos");
-            if(file.exists()){
-                FileInputStream in = new FileInputStream(file);
-                ObjectInputStream entrada = new ObjectInputStream(in);
-                
-                productos = (ArrayList<Producto>)entrada.readObject();
-                
-                entrada.close();
-            }else{
-                throw new Exception();
-            }
-        }catch(Exception e){
-             txtBuscarReporteProducto.setText("Error al recuperar el archivo");
-        }
-
-    }//GEN-LAST:event_formWindowOpened
-
-   
-    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnGuardarReporteProducto;
     private javax.swing.JButton btnReporte;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextArea txtBuscarReporteProducto;
     // End of variables declaration//GEN-END:variables

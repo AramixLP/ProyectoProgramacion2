@@ -11,7 +11,7 @@ public class Sistema implements Reporte {
     private OrdenCompra miOrdenCompra;
     ArrayList<Proveedor> proveedores = new ArrayList();
     ArrayList<Producto> productos = new ArrayList();
-    ArrayList<Producto> ingresarMercaderia = new ArrayList();
+    ArrayList<Producto> ingresoMercaderia= new ArrayList();
     ArrayList<Producto> salidaMercaderia = new ArrayList();
 
     // ArrayList
@@ -23,10 +23,10 @@ public class Sistema implements Reporte {
         productos.add(new Producto(costo, codigo, nombre, cantInicial, cant));//agregar producto
     }
 
-    public Producto buscar(String nombre) {//buscar producto por nombre 
-        Producto temp = null;
-        for (Producto p : productos) {
-            if (p.getNombre().equalsIgnoreCase(nombre)) {
+    public Proveedor buscar(int cedulaJuridica) {//buscar prooveedor por cédula juridica
+        Proveedor temp = null;
+        for (Proveedor p : proveedores) {
+            if (p.getCedJurid() == cedulaJuridica) {
                 temp = p;
                 break;
             }
@@ -34,10 +34,10 @@ public class Sistema implements Reporte {
         return temp;
     }
 
-    public Proveedor buscar(int cedulaJuridica) {//buscar prooveedor por cédula juridica
-        Proveedor temp = null;
-        for (Proveedor p : proveedores) {
-            if (p.getCedJurid() == cedulaJuridica) {
+    public Producto buscar(String nombre) {//buscar producto por nombre 
+        Producto temp = null;
+        for (Producto p : productos) {
+            if (p.getNombre().equalsIgnoreCase(nombre)) {
                 temp = p;
                 break;
             }
@@ -69,30 +69,30 @@ public class Sistema implements Reporte {
             int cantActual = buscar(nombre).getCantidad();
             buscar(nombre).setCantidad(cantActual - cantidad);
         }
-        productos.add(new Producto(costo, codigo, nombre, cantidadInicial, cantidad));
+        salidaMercaderia.add(new Producto(costo, codigo, nombre, cantidadInicial, cantidad));
     }
 
     public String realizarCompra() {
         return this.miOrdenCompra.lista();
 
     }
-    
-     public String listaProductos(){
-         String salida = "";
-         for (Producto p: productos){
-             salida += String.format(""
+
+    public String listaProductos() {
+        String salida = "";
+        for (Producto p : productos) {
+            salida += String.format(""
                     + "%s \t %s \t%d \n %d\n",
                     p.getCodigo(),
                     p.getNombre(),
                     p.getPorcentajeGanancia(),
                     p.getCantidad());
-             
-         }
-         return salida;
-     }
+
+        }
+        return salida;
+    }
 
     @Override
-    public String reporte() {//Reporte de productos
+    public String reporte() {//Reporte de entrada de productos
         String salida = "";
         for (Producto p : productos) {
             salida += String.format("----------REPORTE PRODUCTOS-----------"
@@ -106,7 +106,21 @@ public class Sistema implements Reporte {
         return salida;
     }
 
-        public String reporteProvee() {//Reporte de proveedores
+    public String reporteSalida() {//Reporte de salida de productos
+        String salida = "";
+        for (Producto p : productos) {
+            salida += String.format("----------REPORTE PRODUCTOS-----------"
+                    + "%s\n"
+                    + "...Código%s...Producto%s...Existencia%d...Tipo%s...\n",
+                    miEmpresa.informacionEmpresa(),
+                    p.getCodigo(),
+                    p.getNombre(),
+                    p.getCantidad());
+        }
+        return salida;
+    }
+
+    public String reportePro() {//Reporte de proveedores
         String salida = "";
         for (Proveedor p : proveedores) {
             salida += String.format("----------REPORTE PROVEEDORES-----------"
@@ -120,7 +134,8 @@ public class Sistema implements Reporte {
         }
         return salida;
     }
-        public String reporteGeneral() {//Reporte de movimientos
+
+    public String reporteGeneral() {//Reporte de movimientos
         String salida = "";
         for (Proveedor p : proveedores) {
             salida += String.format("----------REPORTE PROVEEDORES-----------"

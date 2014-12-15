@@ -11,8 +11,8 @@ public class Producto implements Serializable
     protected int cantidad;
     protected int cantidadInicial;
     protected final double porcentajeGanancia = 0.15;
-    static final String prefijo = "PR";
-    static int consecutivo = 1000;
+    public static final String prefijo = "PR";
+    public static int consecutivo = 1000;
 
     public Producto(double costo, int codigo, String nombre, int cantidad, int cantidadInicial) {
         this.costo = costo;

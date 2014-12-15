@@ -17,6 +17,8 @@ public class SalidaMercaderia extends javax.swing.JFrame {
      */
     public SalidaMercaderia() {
         initComponents();
+        setLocationRelativeTo(null);
+        setTitle("Salida de Mercadería");
     }
 
     /**

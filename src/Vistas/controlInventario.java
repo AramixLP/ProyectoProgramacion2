@@ -18,15 +18,12 @@ import javax.swing.JOptionPane;
 import proyectoprogramacion2.Producto;
 import proyectoprogramacion2.Proveedor;
 
-/**
- *
- * @author Aramis
- */
+
 public class controlInventario extends javax.swing.JFrame implements Serializable {
 
     private ArrayList<Proveedor> proveedores = new ArrayList();//arrays paracmetrizados
     private ArrayList<Producto> productos = new ArrayList();
-    private ArrayList<Producto> entradaMercaderia = new ArrayList();
+    private ArrayList<Producto> ingresoMercaderia = new ArrayList();
     private ArrayList<Producto> salidaMercaderia = new ArrayList();
 
     public ArrayList<Proveedor> getProveedores() {
@@ -36,6 +33,24 @@ public class controlInventario extends javax.swing.JFrame implements Serializabl
     public void setProveedores(ArrayList<Proveedor> proveedores) {
         this.proveedores = proveedores;
     }
+
+    public ArrayList<Producto> getEntradaMercaderia() {
+        return ingresoMercaderia;
+    }
+
+    public ArrayList<Producto> getSalidaMercaderia() {
+        return salidaMercaderia;
+    }
+
+    public void setEntradaMercaderia(ArrayList<Producto> entradaMercaderia) {
+        this.ingresoMercaderia = ingresoMercaderia;
+    }
+
+    public void setSalidaMercaderia(ArrayList<Producto> salidaMercaderia) {
+        this.salidaMercaderia = salidaMercaderia;
+    }
+    
+   
     /**
      * Creates new form controlInventario
      */
@@ -260,8 +275,7 @@ public class controlInventario extends javax.swing.JFrame implements Serializabl
                 FileOutputStream in = new FileOutputStream(file);
                 ObjectOutputStream salida = new ObjectOutputStream(in);
                     salida.writeObject(productos); 
-                    
-                    salida.writeObject(entradaMercaderia); 
+                    salida.writeObject(ingresoMercaderia); 
                     salida.writeObject(salidaMercaderia);                   
                 salida.close();
                 
@@ -292,7 +306,8 @@ public class controlInventario extends javax.swing.JFrame implements Serializabl
     }//GEN-LAST:event_jMenuProveedorActionPerformed
 
     private void jMenuMovimientosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuMovimientosActionPerformed
-        
+        ReportesGeneralMovimientos reGeMov = new ReportesGeneralMovimientos();//inicializo ventana de reporte general de movimientos
+        reGeMov.setVisible(true);//para que se vea la ventana
     }//GEN-LAST:event_jMenuMovimientosActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened

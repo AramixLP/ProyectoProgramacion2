@@ -18,6 +18,8 @@ public class entradaMercaderia extends javax.swing.JFrame {
      */
     public entradaMercaderia() {
         initComponents();
+        setLocationRelativeTo(null);
+        setTitle("Entrada Mercadería");
         sis = new Sistema();
     }
 
