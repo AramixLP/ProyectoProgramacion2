@@ -281,7 +281,7 @@ public class Registro extends javax.swing.JFrame {
         String nombre = txtNombre.getText();
         int cantidadInicial = Integer.parseInt(txtCantidadInicial.getText());
         int cantidad = Integer.parseInt(txtCantidad.getText());
-        int porcentajeGanancia = Integer.parseInt(txtPorcentajeGanancia.getText());
+        double porcentajeGanancia = Double.parseDouble(txtPorcentajeGanancia.getText());
         double costo = Double.parseDouble(txtCosto.getText());
         String tipo = cmbTipo.getSelectedItem().toString();
         String proveedor = cmbProveedor.getSelectedItem().toString();
