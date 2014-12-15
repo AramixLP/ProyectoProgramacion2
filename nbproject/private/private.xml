@@ -3,12 +3,18 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/kate/Documents/GitHub/ProyectoProgramacion2/src/Vistas/ReporteSalidas.java</file>
             <file>file:/C:/Users/kate/Documents/GitHub/ProyectoProgramacion2/src/Vistas/entradaMercaderia.java</file>
             <file>file:/C:/Users/kate/Documents/GitHub/ProyectoProgramacion2/src/Vistas/ReporteProductos.java</file>
             <file>file:/C:/Users/kate/Documents/GitHub/ProyectoProgramacion2/src/proyectoprogramacion2/Producto.java</file>
             <file>file:/C:/Users/kate/Documents/GitHub/ProyectoProgramacion2/src/Vistas/Registro.java</file>
             <file>file:/C:/Users/kate/Documents/GitHub/ProyectoProgramacion2/src/Vistas/controlInventario.java</file>
+=======
+            <file>file:/C:/Users/Aramis/Documents/GitHub/ProyectoProgramacion2/src/Vistas/Registro.java</file>
+            <file>file:/C:/Users/Aramis/Documents/GitHub/ProyectoProgramacion2/src/proyectoprogramacion2/Perecedero.java</file>
+            <file>file:/C:/Users/Aramis/Documents/GitHub/ProyectoProgramacion2/src/proyectoprogramacion2/Producto.java</file>
+>>>>>>> origin/master
         </group>
     </open-files>
 </project-private>

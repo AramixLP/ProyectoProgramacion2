@@ -135,7 +135,7 @@ public class ReporteProductos extends javax.swing.JFrame {
                   
                   
           for (Producto p: productos){
-               texto +="\nCodigo: "+p.getCodigo()+"\nProducto: "+p.getNombre()+"\nExistencia: "+p.getCantidad();
+               texto +="\nCodigo: "+p.getCodigo()+"\tProducto: "+p.getNombre()+"\tExistencia: "+p.getCantidad();
           }
           writer.append(texto);
           writer.close();

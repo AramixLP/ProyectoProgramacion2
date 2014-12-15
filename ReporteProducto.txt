@@ -14,4 +14,22 @@ Producto: ertert
 Existencia: 45
 Codigo: PR-1000
 Producto: qweqwe
-Existencia: 45
+Existencia: 45----------REPORTE PRODUCTOS-----------
+
+Codigo: PR-1000	Producto: fffff	Existencia: 12
+Codigo: PR-1000	Producto: aaaaa	Existencia: 12
+Codigo: PR-1000	Producto: zzzz	Existencia: 12
+Codigo: PR-1000	Producto: ertert	Existencia: 45
+Codigo: PR-1000	Producto: qweqwe	Existencia: 45----------REPORTE PRODUCTOS-----------
+
+Codigo: PR-1000	Producto: fffff	Existencia: 12
+Codigo: PR-1000	Producto: aaaaa	Existencia: 12
+Codigo: PR-1000	Producto: zzzz	Existencia: 12
+Codigo: PR-1000	Producto: ertert	Existencia: 45
+Codigo: PR-1000	Producto: qweqwe	Existencia: 45----------REPORTE PRODUCTOS-----------
+
+Codigo: PR-1000	Producto: fffff	Existencia: 12
+Codigo: PR-1000	Producto: aaaaa	Existencia: 12
+Codigo: PR-1000	Producto: zzzz	Existencia: 12
+Codigo: PR-1000	Producto: ertert	Existencia: 45
+Codigo: PR-1000	Producto: qweqwe	Existencia: 45
