@@ -225,7 +225,7 @@ public class entradaMercaderia extends javax.swing.JFrame {
     }//GEN-LAST:event_jRadioButtonOrdenCompraActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        String nombre = txtCodigoProducto.getText();
+        String codigo = txtCodigoProducto.getText();
         int cantidad = Integer.parseInt(txtCodigoProducto.getText());
         if (jRadioButtonOrdenCompra.isSelected()) {
             sis.ingresarMercaderia(WIDTH, cantidad, nombre, cantidad, cantidad);

@@ -9,6 +9,7 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.util.ArrayList;
+import proyectoprogramacion2.Producto;
 import proyectoprogramacion2.Sistema;
 
 /**
@@ -17,7 +18,7 @@ import proyectoprogramacion2.Sistema;
  */
 public class ReporteEntradas extends javax.swing.JFrame {
 
-    ArrayList<Sistema> ingresoMercaderia = new ArrayList();
+    ArrayList<Producto> ingresoMercaderia = new ArrayList();
 
     /**
      * Creates new form ReporteEntradas
@@ -109,8 +110,8 @@ public class ReporteEntradas extends javax.swing.JFrame {
 
             String texto = "----------REPORTE PRODUCTOS-----------\n";
 
-            for (Sistema ent : ingresoMercaderia) {
-                texto += "\nCodigo: " + ent.getCodigo() + "\nProducto: " + p.getNombre() + "\nExistencia: " + p.getCantidad();
+            for (Producto p : ingresoMercaderia) {
+                texto += "\nCodigo: " + p.getCodigo() + "\nProducto: " + p.getNombre() + "\nExistencia: " + p.getCantidad();
             }
            writer.append(texto);
             writer.close();
@@ -121,7 +122,7 @@ public class ReporteEntradas extends javax.swing.JFrame {
     private void btnReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReporteActionPerformed
         String s = "";
         for (Sistema sis : ingresoMercaderia) {
-            s += sis.informacionProducto();
+            s += p.informacionProducto();
         }
         txtBuscarReporteProducto.setText(s);
     }//GEN-LAST:event_btnReporteActionPerformed

@@ -119,7 +119,7 @@ public class ReporteSalidas extends javax.swing.JFrame {
     private void btnReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReporteActionPerformed
         String s="";
         for(Sistema salida: salidaMercaderia){
-            s+=salida.salidaProducto();
+            s+=salida.reporteSalida();
         }
         txtBuscarReporteProducto.setText(s);
     }//GEN-LAST:event_btnReporteActionPerformed
