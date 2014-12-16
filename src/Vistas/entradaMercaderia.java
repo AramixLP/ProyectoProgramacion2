@@ -57,7 +57,7 @@ public class entradaMercaderia extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jRadioButtonOrdenCompra = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
+        jRadioButtonDevolucion = new javax.swing.JRadioButton();
         jLCliente = new javax.swing.JLabel();
         jLFactura = new javax.swing.JLabel();
         jLMotivo = new javax.swing.JLabel();
@@ -90,8 +90,8 @@ public class entradaMercaderia extends javax.swing.JFrame {
             }
         });
 
-        buttonGroup1.add(jRadioButton2);
-        jRadioButton2.setText("Devoulución");
+        buttonGroup1.add(jRadioButtonDevolucion);
+        jRadioButtonDevolucion.setText("Devoulución");
 
         jLCliente.setText("Cliente:");
 
@@ -163,7 +163,7 @@ public class entradaMercaderia extends javax.swing.JFrame {
                         .addGap(54, 54, 54)
                         .addComponent(jRadioButtonOrdenCompra)
                         .addGap(99, 99, 99)
-                        .addComponent(jRadioButton2))
+                        .addComponent(jRadioButtonDevolucion))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(180, 180, 180)
                         .addComponent(jLabel1)))
@@ -175,7 +175,7 @@ public class entradaMercaderia extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jRadioButton2)
+                    .addComponent(jRadioButtonDevolucion)
                     .addComponent(jRadioButtonOrdenCompra))
                 .addGap(5, 5, 5)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -228,9 +228,12 @@ public class entradaMercaderia extends javax.swing.JFrame {
         String codigo = txtCodigoProducto.getText();
         int cantidad = Integer.parseInt(txtCodigoProducto.getText());
         if (jRadioButtonOrdenCompra.isSelected()) {
-            sis.ingresarMercaderia(WIDTH, cantidad, nombre, cantidad, cantidad);
+            sis.ingresarMercaderia(WIDTH, cantidad, codigo, cantidad, cantidad);
         } else {
-            sis.salidaProducto(WIDTH, cantidad, nombre, cantidad, cantidad);
+            sis.salidaProducto(WIDTH, cantidad, codigo, cantidad, cantidad);
+        }
+        if (jRadioButtonDevolucion.isSelected()){
+            
         }
          
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -250,7 +253,7 @@ public class entradaMercaderia extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JRadioButton jRadioButton2;
+    private javax.swing.JRadioButton jRadioButtonDevolucion;
     private javax.swing.JRadioButton jRadioButtonOrdenCompra;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextPane jTxtMotivo;

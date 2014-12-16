@@ -12,6 +12,7 @@ import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import proyectoprogramacion2.Proveedor;
 
 /**
@@ -26,13 +27,31 @@ public class RegistroProveedor extends javax.swing.JFrame {
     public RegistroProveedor() {
         initComponents();
         setLocationRelativeTo(null);
-        setTitle("Registro de Proveedores");
+        setTitle("Registro de Proveedores");//pone título en la barra del título de la ventana
         
     }
 
     public ArrayList<Proveedor> getProveedores() {
         return proveedores;
     }
+     private boolean validaCampos() {//validar cuando los txt quedan en blanco
+         if (txtNombre.getText().equals("") || txtNombre.getText().equals(" ") || txtNombre.getText().isEmpty()) {
+            return false;
+        } else if (txtCedJuridica.getText().equals("") || txtCedJuridica.getText().equals(" ") || txtCedJuridica.getText().isEmpty()) {
+            return false;
+        } else if (txtTelefono.getText().equals("") || txtTelefono.getText().equals(" ") || txtTelefono.getText().isEmpty()) {
+            return false;
+        } else if (txtPaginaWeb.getText().equals("") || txtPaginaWeb.getText().equals(" ") || txtPaginaWeb.getText().isEmpty()) {
+            return false;
+        } else if (txtContacto.getText().equals("") || txtContacto.getText().equals(" ") || txtContacto.getText().isEmpty()) {
+            return false;
+        } else if (txtEmail.getText().equals("") || txtEmail.getText().equals(" ") || txtEmail.getText().isEmpty()) {
+            return false;
+        }
+        
+        return true;
+    }//termina validaCampos
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -179,7 +198,7 @@ public class RegistroProveedor extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-      
+      if(this.validaCampos()){//pone a validar el metodo para valdiar los campos en blanco
         String nombre = txtNombre.getText();
         int cedulaJuridica = Integer.parseInt(txtCedJuridica.getText());
         int telefono = Integer.parseInt(txtTelefono.getText());
@@ -188,9 +207,12 @@ public class RegistroProveedor extends javax.swing.JFrame {
         String email = txtEmail.getText();
         
         proveedores.add(new Proveedor( contacto,paginaWeb, nombre, cedulaJuridica,telefono,  email));
-        
+        } 
+            else {
+                JOptionPane.showMessageDialog(null,"Debe llenar los campos en blanco");//muestra mensaje cuando queda en blanco los espacios
+            }
 
-      
+    
     }//GEN-LAST:event_jButton1ActionPerformed
     
     private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed

@@ -36,7 +36,6 @@ public class ReporteProductos extends javax.swing.JFrame {
         sis = new Sistema();
     }
     
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -142,9 +141,8 @@ public class ReporteProductos extends javax.swing.JFrame {
           writer.append(texto);
           writer.close();
       }catch (Exception e){
+      }
     }//GEN-LAST:event_btnGuardarReporteProductoActionPerformed
-    }
-    
     
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         try{

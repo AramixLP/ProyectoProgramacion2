@@ -35,7 +35,7 @@ public class ReportesGeneralMovimientos extends javax.swing.JFrame {
         btnReporte = new javax.swing.JButton();
         btnGuardarReporteProducto = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        txtBuscarReporteProducto = new javax.swing.JTextArea();
+        txtBuscarReporte = new javax.swing.JTextArea();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -59,9 +59,9 @@ public class ReportesGeneralMovimientos extends javax.swing.JFrame {
             }
         });
 
-        txtBuscarReporteProducto.setColumns(20);
-        txtBuscarReporteProducto.setRows(5);
-        jScrollPane2.setViewportView(txtBuscarReporteProducto);
+        txtBuscarReporte.setColumns(20);
+        txtBuscarReporte.setRows(5);
+        jScrollPane2.setViewportView(txtBuscarReporte);
 
         jLabel1.setText("REPORTE DE GENERAL DE MOVIMIENTOS");
 
@@ -106,7 +106,7 @@ public class ReportesGeneralMovimientos extends javax.swing.JFrame {
         for (Producto p : productos) {//para recorrer el arrayList
             s += p.informacionProducto();
         }
-        txtBuscarReporteProducto.setText(s);
+        txtBuscarReporte.setText(s);
     }//GEN-LAST:event_btnReporteActionPerformed
 
     private void btnGuardarReporteProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarReporteProductoActionPerformed
@@ -115,7 +115,7 @@ public class ReportesGeneralMovimientos extends javax.swing.JFrame {
             FileWriter FW = new FileWriter(f, true);
             BufferedWriter writer = new BufferedWriter(FW);
 
-            String texto = "----------REPORTE PRODUCTOS-----------\n";
+            String texto = "----------REPORTE GENERAL DE MOVIMIENTOS-----------\n";
 
             for (Producto p : productos) {
                 texto += "\nCodigo: " + p.getCodigo() + "\nProducto: " + p.getNombre() + "\nExistencia: " + p.getCantidad();
@@ -140,7 +140,7 @@ public class ReportesGeneralMovimientos extends javax.swing.JFrame {
                 throw new Exception();
             }
         }catch(Exception e){
-             txtBuscarReporteProducto.setText("Error al recuperar el archivo");
+             txtBuscarReporte.setText("Error al recuperar el archivo");
         }
 
     }//GEN-LAST:event_formWindowOpened
@@ -150,6 +150,6 @@ public class ReportesGeneralMovimientos extends javax.swing.JFrame {
     private javax.swing.JButton btnReporte;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextArea txtBuscarReporteProducto;
+    private javax.swing.JTextArea txtBuscarReporte;
     // End of variables declaration//GEN-END:variables
 }

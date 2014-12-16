@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Vistas;
 
 import java.io.BufferedWriter;
@@ -19,6 +15,7 @@ import proyectoprogramacion2.Sistema;
 public class ReporteEntradas extends javax.swing.JFrame {
 
     ArrayList<Producto> ingresoMercaderia = new ArrayList();
+    ArrayList<Sistema> ingresoMercader = new ArrayList();
 
     /**
      * Creates new form ReporteEntradas
@@ -108,7 +105,7 @@ public class ReporteEntradas extends javax.swing.JFrame {
             FileWriter FW = new FileWriter(f, true);
             BufferedWriter writer = new BufferedWriter(FW);
 
-            String texto = "----------REPORTE PRODUCTOS-----------\n";
+            String texto = "----------REPORTE ENTRADAS-----------\n";
 
             for (Producto p : ingresoMercaderia) {
                 texto += "\nCodigo: " + p.getCodigo() + "\nProducto: " + p.getNombre() + "\nExistencia: " + p.getCantidad();
@@ -121,8 +118,8 @@ public class ReporteEntradas extends javax.swing.JFrame {
 
     private void btnReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReporteActionPerformed
         String s = "";
-        for (Sistema sis : ingresoMercaderia) {
-            s += p.informacionProducto();
+        for (Sistema sis : ingresoMercader) {
+            s += sis.ingresarMercaderia(WIDTH, WIDTH, s, WIDTH, WIDTH);
         }
         txtBuscarReporteProducto.setText(s);
     }//GEN-LAST:event_btnReporteActionPerformed

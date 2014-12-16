@@ -140,12 +140,13 @@ public class controlInventario extends javax.swing.JFrame implements Serializabl
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setPreferredSize(new java.awt.Dimension(500, 304));
         addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowClosing(java.awt.event.WindowEvent evt) {
-                controlInventario.this.windowClosing(evt);
-            }
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
+            }
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                controlInventario.this.windowClosing(evt);
             }
         });
 
@@ -216,6 +217,11 @@ public class controlInventario extends javax.swing.JFrame implements Serializabl
         jMenu3.add(jMenuMovimientos);
 
         jMenuEntradas.setText("Entradas");
+        jMenuEntradas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuEntradasActionPerformed(evt);
+            }
+        });
         jMenu3.add(jMenuEntradas);
 
         jMenuSalidas.setText("Salidas");
@@ -227,9 +233,19 @@ public class controlInventario extends javax.swing.JFrame implements Serializabl
         jMenu3.add(jMenuSalidas);
 
         jMenuExistenciaActual.setText("Existencia Actual");
+        jMenuExistenciaActual.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuExistenciaActualActionPerformed(evt);
+            }
+        });
         jMenu3.add(jMenuExistenciaActual);
 
         jMenuAuditoria.setText("Auditoria");
+        jMenuAuditoria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuAuditoriaActionPerformed(evt);
+            }
+        });
         jMenu3.add(jMenuAuditoria);
 
         jMenuBar1.add(jMenu3);
@@ -251,7 +267,8 @@ public class controlInventario extends javax.swing.JFrame implements Serializabl
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuSalidasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuSalidasActionPerformed
-        // TODO add your handling code here:
+      ReporteSalidas reSal = new ReporteSalidas();//inicializo ventana de reporte salidas
+        reSal.setVisible(true);//para que se vea la ventana
     }//GEN-LAST:event_jMenuSalidasActionPerformed
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
@@ -282,7 +299,6 @@ public class controlInventario extends javax.swing.JFrame implements Serializabl
             } catch (Exception e) {
                 
             }
-    
     }//GEN-LAST:event_windowClosing
 
     private void jMenuItemGeneProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemGeneProductosActionPerformed
@@ -313,6 +329,21 @@ public class controlInventario extends javax.swing.JFrame implements Serializabl
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
 
     }//GEN-LAST:event_formWindowOpened
+
+    private void jMenuEntradasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuEntradasActionPerformed
+        ReporteEntradas reEnt = new ReporteEntradas();//inicializo ventana de reporte entradas
+        reEnt.setVisible(true);//para que se vea la ventana
+    }//GEN-LAST:event_jMenuEntradasActionPerformed
+
+    private void jMenuExistenciaActualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuExistenciaActualActionPerformed
+        ReporteExistenciasActuales reExAct = new ReporteExistenciasActuales();//inicializo ventana de reporte existencia actual
+        reExAct.setVisible(true);//para que se vea la ventana
+    }//GEN-LAST:event_jMenuExistenciaActualActionPerformed
+
+    private void jMenuAuditoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuAuditoriaActionPerformed
+       ReporteAuditoria reExAct = new ReporteAuditoria();//inicializo ventana de reporte auditoria
+        reExAct.setVisible(true);//para que se vea la ventana
+    }//GEN-LAST:event_jMenuAuditoriaActionPerformed
 
     /**
      * @param args the command line arguments

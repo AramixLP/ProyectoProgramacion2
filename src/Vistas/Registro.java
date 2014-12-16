@@ -1,9 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package Vistas;
 
 import java.awt.Color;
@@ -23,44 +17,35 @@ import proyectoprogramacion2.Proveedor;
  * @author kate
  */
 public class Registro extends javax.swing.JFrame {
-    private ArrayList<Producto> productos = new ArrayList(); 
-    boolean producto = true;
+
+    private ArrayList<Producto> productos = new ArrayList();
 
     /**
      * Creates new form Registro
      */
     public Registro() {
         initComponents();
+        setLocationRelativeTo(null);
+        setTitle("Registro de Producto");
         updateState();
     }
-    
-    private boolean validaCampos() {
-        boolean campo = true;
 
-        if (txtCodigo.getText().equals("")) {
-            campo = false;
+    private boolean validaCampos() {//validar cuando los txt quedan en blanco
+        if (txtCodigo.getText().equals("") || txtCodigo.getText().equals(" ") || txtCodigo.getText().isEmpty()) {
+            return false;
+        } else if (txtNombre.getText().equals("") || txtNombre.getText().equals(" ") || txtNombre.getText().isEmpty()) {
+            return false;
+        } else if (txtCantidadInicial.getText().equals("") || txtCantidadInicial.getText().equals(" ") || txtCantidadInicial.getText().isEmpty()) {
+            return false;
+        } else if (txtCantidad.getText().equals("") || txtCantidad.getText().equals(" ") || txtCantidad.getText().isEmpty()) {
+            return false;
+        } else if (txtCosto.getText().equals("") || txtCosto.getText().equals(" ") || txtCosto.getText().isEmpty()) {
+            return false;
+        } else if (txtPorcentajeGanancia.getText().equals("") || txtPorcentajeGanancia.getText().equals(" ") || txtPorcentajeGanancia.getText().isEmpty()) {
+            return false;
         }
-
-        if (txtNombre.getText().equals("")) {
-            campo = false;
-        }
-        if (txtCantidadInicial.getText().equals("")) {
-            campo = false;
-        } else {
-            if (txtCantidad.getText().equals("")) {
-                campo = false;
-            }
-
-            if (txtCosto.getText().equals("")) {
-                campo = false;
-            }
-            if (txtPorcentajeGanancia.getText().equals("")) {
-                campo = false;
-            }
-        }
-        return campo;
-
-    }
+        return true;
+    }//termina validaCampos
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -306,68 +291,65 @@ public class Registro extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
-        
-        if(producto){           
-            if(this.validaCampos()){
-                int codigo = Integer.parseInt(txtCodigo.getText());
-                String nombre = txtNombre.getText();
-                int cantidadInicial = Integer.parseInt(txtCantidadInicial.getText());
-                int cantidad = Integer.parseInt(txtCantidad.getText());
-                double porcentajeGanancia = Double.parseDouble(txtPorcentajeGanancia.getText());
-                double costo = Double.parseDouble(txtCosto.getText());
-                String tipo = cmbTipo.getSelectedItem().toString();
-                String proveedor = cmbProveedor.getSelectedItem().toString();
 
-                if (cmbTipo.equals("Producto"))
-                    productos.add(new Producto(costo, codigo, nombre, cantidad, cantidadInicial));
-                else if (cmbTipo.equals("Perecedero")) {
-                    String fechaExp = txtFechaExp.getText();
-                    Double temperatura = Double.parseDouble(txtTemperatura.getText());
-                    Double costoAdicional = Double.parseDouble(txtCostoAdicional.getText());
-                    productos.add(new Perecedero(fechaExp, temperatura, costoAdicional, costo, codigo, nombre, cantidadInicial, cantidad));
-                } 
-            } 
-            else {
-                JOptionPane.showMessageDialog(null,"Debe llenar los campos en blanco");
+        if (this.validaCampos()) {//pone a validar el metodo para valdiar los campos en blanco
+            int codigo = Integer.parseInt(txtCodigo.getText());
+            String nombre = txtNombre.getText();
+            int cantidadInicial = Integer.parseInt(txtCantidadInicial.getText());
+            int cantidad = Integer.parseInt(txtCantidad.getText());
+            double porcentajeGanancia = Double.parseDouble(txtPorcentajeGanancia.getText());
+            double costo = Double.parseDouble(txtCosto.getText());
+                //String tipo = cmbTipo.getSelectedItem().toString();
+
+            if (cmbTipo.equals("Producto")) {
+                productos.add(new Producto(costo, codigo, nombre, cantidad, cantidadInicial));
+            } else if (cmbTipo.equals("Perecedero")) {
+                String fechaExp = txtFechaExp.getText();
+                Double temperatura = Double.parseDouble(txtTemperatura.getText());
+                Double costoAdicional = Double.parseDouble(txtCostoAdicional.getText());
+                productos.add(new Perecedero(fechaExp, temperatura, costoAdicional, costo, codigo, nombre, cantidadInicial, cantidad));
             }
+        } else {
+            JOptionPane.showMessageDialog(null, "Debe llenar los campos en blanco");//muestra mensaje cuando queda en blanco los espacios
         }
+
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-                try {
-        File file = new File("productos");
-            if(file.exists()){
-                FileInputStream in = new FileInputStream(file);       
-                ObjectInputStream entrada = new ObjectInputStream(in);        
-                productos  = (ArrayList<Producto>)entrada.readObject();
-         
+        try {
+            File file = new File("productos");
+            if (file.exists()) {
+                FileInputStream in = new FileInputStream(file);
+                ObjectInputStream entrada = new ObjectInputStream(in);
+                productos = (ArrayList<Producto>) entrada.readObject();
+
                 entrada.close();
-            }else{
+            } else {
                 throw new Exception();
             }
-        } catch(Exception ex) {
+        } catch (Exception ex) {
             System.out.println("Error al recuperar el archivo");
         }
     }//GEN-LAST:event_formWindowOpened
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-                try {
-        
-                File file = new File("productos");
-                FileOutputStream in = new FileOutputStream(file);
-                ObjectOutputStream salida = new ObjectOutputStream(in);
-                    
-                salida.writeObject(productos); 
-                                      
-                salida.close();
-                
-            } catch (Exception e) {
-                
-            }
+        try {
+
+            File file = new File("productos");
+            FileOutputStream in = new FileOutputStream(file);
+            ObjectOutputStream salida = new ObjectOutputStream(in);
+
+            salida.writeObject(productos);
+
+            salida.close();
+
+        } catch (Exception e) {
+
+        }
     }//GEN-LAST:event_formWindowClosing
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
-        for (Producto p: productos) {
+        for (Producto p : productos) {
             if (p.getCodigo() == txtCodigo.getText()) {
                 p.setCantidad(Integer.parseInt(txtCantidad.getText()));
                 p.setCosto(Integer.parseInt(txtCosto.getText()));
@@ -377,13 +359,14 @@ public class Registro extends javax.swing.JFrame {
     }//GEN-LAST:event_btnModificarActionPerformed
 
     private void txtFechaExpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFechaExpActionPerformed
-        if (cmbTipo.equals("Perecedero")) 
+        if (cmbTipo.equals("Perecedero")) {
             txtFechaExp.isVisible();
+        }
     }//GEN-LAST:event_txtFechaExpActionPerformed
 
     private void cmbTipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbTipoActionPerformed
         updateState();
-        
+
         //if (cmbTipo) {
         //    txtFechaExp.setEditable(true);
         //    txtTemperatura.setEditable(true);
@@ -392,19 +375,19 @@ public class Registro extends javax.swing.JFrame {
     }//GEN-LAST:event_cmbTipoActionPerformed
 
     private void txtCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodigoActionPerformed
-        
+
     }//GEN-LAST:event_txtCodigoActionPerformed
-    
+
     private void updateState() {
-    boolean enabled = cmbTipo.getSelectedItem().equals("Perecedero");
-    txtFechaExp.setEnabled(enabled ); 
-    jLabel11.setEnabled(enabled );
-    txtTemperatura.setEnabled(enabled ); 
-    jLabel12.setEnabled(enabled );
-    txtCostoAdicional.setEnabled(enabled ); 
-    jLabel13.setEnabled(enabled );
-}
-    
+        boolean enabled = cmbTipo.getSelectedItem().equals("Perecedero");
+        txtFechaExp.setEnabled(enabled);
+        jLabel11.setEnabled(enabled);
+        txtTemperatura.setEnabled(enabled);
+        jLabel12.setEnabled(enabled);
+        txtCostoAdicional.setEnabled(enabled);
+        jLabel13.setEnabled(enabled);
+    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgregar;

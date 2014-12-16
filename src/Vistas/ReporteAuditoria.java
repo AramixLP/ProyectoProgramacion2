@@ -104,7 +104,7 @@ public class ReporteAuditoria extends javax.swing.JFrame {
             FileWriter FW = new FileWriter(f,true);
             BufferedWriter writer = new BufferedWriter(FW);
 
-            String texto= "----------REPORTE PRODUCTOS-----------\n";
+            String texto= "----------REPORTE AUDITORIA-----------\n";
 
             for (Producto p: productos){
                 texto +="\nCodigo: "+p.getCodigo()+"\nProducto: "+p.getNombre()+"\nExistencia: "+p.getCantidad();

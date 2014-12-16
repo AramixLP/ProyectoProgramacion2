@@ -292,7 +292,7 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Fecha de Expiracion:"/>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-          <Color id="Default Cursor"/>
+          <Color id="Cursor Por defecto"/>
         </Property>
       </Properties>
     </Component>
@@ -300,7 +300,7 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Temperatura de Camara:"/>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-          <Color id="Default Cursor"/>
+          <Color id="Cursor Por defecto"/>
         </Property>
       </Properties>
     </Component>
@@ -308,14 +308,14 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Costo Adicional:"/>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-          <Color id="Default Cursor"/>
+          <Color id="Cursor Por defecto"/>
         </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtFechaExp">
       <Properties>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-          <Color id="Default Cursor"/>
+          <Color id="Cursor Por defecto"/>
         </Property>
       </Properties>
       <AccessibilityProperties>
@@ -330,7 +330,7 @@
     <Component class="javax.swing.JTextField" name="txtTemperatura">
       <Properties>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-          <Color id="Default Cursor"/>
+          <Color id="Cursor Por defecto"/>
         </Property>
       </Properties>
       <AccessibilityProperties>
@@ -342,7 +342,7 @@
     <Component class="javax.swing.JTextField" name="txtCostoAdicional">
       <Properties>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-          <Color id="Default Cursor"/>
+          <Color id="Cursor Por defecto"/>
         </Property>
       </Properties>
       <AccessibilityProperties>
