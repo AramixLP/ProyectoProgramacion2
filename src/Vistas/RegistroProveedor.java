@@ -21,6 +21,7 @@ import proyectoprogramacion2.Proveedor;
  */
 public class RegistroProveedor extends javax.swing.JFrame {
     private ArrayList<Proveedor> proveedores = new ArrayList();
+    
     /**
      * Creates new form RegistroProveedor
      */
@@ -198,22 +199,27 @@ public class RegistroProveedor extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-      if(this.validaCampos()){//pone a validar el metodo para valdiar los campos en blanco
-        String nombre = txtNombre.getText();
-        int cedulaJuridica = Integer.parseInt(txtCedJuridica.getText());
-        int telefono = Integer.parseInt(txtTelefono.getText());
-        String paginaWeb = txtPaginaWeb.getText();
-        String contacto = txtContacto.getText();
-        String email = txtEmail.getText();
-        
-        proveedores.add(new Proveedor( contacto,paginaWeb, nombre, cedulaJuridica,telefono,  email));
+       
+        if(this.validaCampos()){//pone a validar el metodo para valdiar los campos en blanco
+            String nombre = txtNombre.getText();
+            int cedulaJuridica = Integer.parseInt(txtCedJuridica.getText());
+            int telefono = Integer.parseInt(txtTelefono.getText());
+            
+            
+            String paginaWeb = txtPaginaWeb.getText();
+            String contacto = txtContacto.getText();
+            String email = txtEmail.getText();
+            
+            proveedores.add(new Proveedor( contacto,paginaWeb, nombre, cedulaJuridica,telefono,  email));
+            
         } 
-            else {
-                JOptionPane.showMessageDialog(null,"Debe llenar los campos en blanco");//muestra mensaje cuando queda en blanco los espacios
-            }
-
+        else {
+            JOptionPane.showMessageDialog(null,"Debe llenar los campos en blanco");//muestra mensaje cuando queda en blanco los espacios
+        }
+        
     
     }//GEN-LAST:event_jButton1ActionPerformed
+    
     
     private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
         // TODO add your handling code here:

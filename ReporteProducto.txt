@@ -1,38 +1,212 @@
 ----------REPORTE PRODUCTOS-----------
 
 Codigo: PR-1000
-Producto: fffff
+Producto: a
 Existencia: 12
 Codigo: PR-1000
-Producto: aaaaa
+Producto: a
 Existencia: 12
 Codigo: PR-1000
-Producto: zzzz
+Producto: a
 Existencia: 12
 Codigo: PR-1000
-Producto: ertert
+Producto: ssss
+Existencia: 13
+Codigo: PR-1000
+Producto: ddddd
+Existencia: 13
+Codigo: PR-1000
+Producto: ddddd
+Existencia: 13
+Codigo: PR-1000
+Producto: hhhhh
+Existencia: 13
+Codigo: PR-1000
+Producto: perecedero1
+Existencia: 1
+Codigo: PR-1000
+Producto: perecedero2
+Existencia: 1
+Codigo: PR-1000
+Producto: perecedero3
+Existencia: 1
+Codigo: PR-1000
+Producto: Arroz
+Existencia: 54
+Codigo: PR-1000
+Producto: Leche
+Existencia: 25
+Codigo: PR-1000
+Producto: Leche
+Existencia: 50
+Codigo: PR-1000
+Producto: Pan
 Existencia: 45
 Codigo: PR-1000
-Producto: qweqwe
-Existencia: 45----------REPORTE PRODUCTOS-----------
+Producto: Galletas
+Existencia: 20
+Codigo: PR-1000
+Producto: Queso
+Existencia: 80----------REPORTE PRODUCTOS-----------
 
-Codigo: PR-1000	Producto: fffff	Existencia: 12
-Codigo: PR-1000	Producto: aaaaa	Existencia: 12
-Codigo: PR-1000	Producto: zzzz	Existencia: 12
-Codigo: PR-1000	Producto: ertert	Existencia: 45
-Codigo: PR-1000	Producto: qweqwe	Existencia: 45----------REPORTE PRODUCTOS-----------
+Codigo: PR-1000
+Producto: a
+Existencia: 12
+Codigo: PR-1000
+Producto: a
+Existencia: 12
+Codigo: PR-1000
+Producto: a
+Existencia: 12
+Codigo: PR-1000
+Producto: ssss
+Existencia: 13
+Codigo: PR-1000
+Producto: ddddd
+Existencia: 13
+Codigo: PR-1000
+Producto: ddddd
+Existencia: 13
+Codigo: PR-1000
+Producto: hhhhh
+Existencia: 13
+Codigo: PR-1000
+Producto: perecedero1
+Existencia: 1
+Codigo: PR-1000
+Producto: perecedero2
+Existencia: 1
+Codigo: PR-1000
+Producto: perecedero3
+Existencia: 1
+Codigo: PR-1000
+Producto: Arroz
+Existencia: 54
+Codigo: PR-1000
+Producto: Leche
+Existencia: 25
+Codigo: PR-1000
+Producto: Leche
+Existencia: 50
+Codigo: PR-1000
+Producto: Pan
+Existencia: 45
+Codigo: PR-1000
+Producto: Galletas
+Existencia: 20
+Codigo: PR-1000
+Producto: Queso
+Existencia: 80
+Codigo: PR-1000
+Producto: adfa
+Existencia: 65----------REPORTE PRODUCTOS-----------
 
-Codigo: PR-1000	Producto: fffff	Existencia: 12
-Codigo: PR-1000	Producto: aaaaa	Existencia: 12
-Codigo: PR-1000	Producto: zzzz	Existencia: 12
-Codigo: PR-1000	Producto: ertert	Existencia: 45
-Codigo: PR-1000	Producto: qweqwe	Existencia: 45----------REPORTE PRODUCTOS-----------
+Codigo: PR-1000
+Producto: a
+Existencia: 12
+Codigo: PR-1000
+Producto: a
+Existencia: 12
+Codigo: PR-1000
+Producto: a
+Existencia: 12
+Codigo: PR-1000
+Producto: ssss
+Existencia: 13
+Codigo: PR-1000
+Producto: ddddd
+Existencia: 13
+Codigo: PR-1000
+Producto: ddddd
+Existencia: 13
+Codigo: PR-1000
+Producto: hhhhh
+Existencia: 13
+Codigo: PR-1000
+Producto: perecedero1
+Existencia: 1
+Codigo: PR-1000
+Producto: perecedero2
+Existencia: 1
+Codigo: PR-1000
+Producto: perecedero3
+Existencia: 1
+Codigo: PR-1000
+Producto: Arroz
+Existencia: 54
+Codigo: PR-1000
+Producto: Leche
+Existencia: 25
+Codigo: PR-1000
+Producto: Leche
+Existencia: 50
+Codigo: PR-1000
+Producto: Pan
+Existencia: 45
+Codigo: PR-1000
+Producto: Galletas
+Existencia: 20
+Codigo: PR-1000
+Producto: Queso
+Existencia: 80
+Codigo: PR-1000
+Producto: adfa
+Existencia: 65----------REPORTE PRODUCTOS-----------
 
-Codigo: PR-1000	Producto: fffff	Existencia: 12
-Codigo: PR-1000	Producto: aaaaa	Existencia: 12
-Codigo: PR-1000	Producto: zzzz	Existencia: 12
-Codigo: PR-1000	Producto: ertert	Existencia: 45
-Codigo: PR-1000	Producto: qweqwe	Existencia: 45----------REPORTE PRODUCTOS-----------
-----------REPORTE PRODUCTOS-----------
-----------REPORTE PRODUCTOS-----------
-----------REPORTE PRODUCTOS-----------
+Codigo: PR-1000
+Producto: a
+Existencia: 12
+Codigo: PR-1000
+Producto: a
+Existencia: 12
+Codigo: PR-1000
+Producto: a
+Existencia: 12
+Codigo: PR-1000
+Producto: ssss
+Existencia: 13
+Codigo: PR-1000
+Producto: ddddd
+Existencia: 13
+Codigo: PR-1000
+Producto: ddddd
+Existencia: 13
+Codigo: PR-1000
+Producto: hhhhh
+Existencia: 13
+Codigo: PR-1000
+Producto: perecedero1
+Existencia: 1
+Codigo: PR-1000
+Producto: perecedero2
+Existencia: 1
+Codigo: PR-1000
+Producto: perecedero3
+Existencia: 1
+Codigo: PR-1000
+Producto: Arroz
+Existencia: 54
+Codigo: PR-1000
+Producto: Leche
+Existencia: 25
+Codigo: PR-1000
+Producto: Leche
+Existencia: 50
+Codigo: PR-1000
+Producto: Pan
+Existencia: 45
+Codigo: PR-1000
+Producto: Galletas
+Existencia: 20
+Codigo: PR-1000
+Producto: Queso
+Existencia: 80
+Codigo: PR-1000
+Producto: adfa
+Existencia: 65
+Codigo: PR-1000
+Producto: asdf
+Existencia: 84
+Codigo: PR-1000
+Producto: aasd
+Existencia: 5

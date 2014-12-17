@@ -115,10 +115,10 @@ public class ReporteGeneralProductos extends javax.swing.JFrame {
             FileWriter FW = new FileWriter(f,true);
             BufferedWriter writer = new BufferedWriter(FW);
 
-            String texto= "----------REPORTE PRODUCTOS-----------\n";
+            String texto= "\n----------REPORTE PRODUCTOS-----------";
 
             for (Producto p: productos){
-                texto +="\nCodigo: "+p.getCodigo()+"\nProducto: "+p.getNombre()+"\nExistencia: "+p.getCantidad();
+                texto +="\nCodigo: "+p.getCodigo()+"\tProducto: "+p.getNombre()+"\tExistencia: "+p.getCantidad();
             }
             writer.append(texto);
             writer.close();
@@ -136,7 +136,7 @@ public class ReporteGeneralProductos extends javax.swing.JFrame {
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         try{
-            File file = new File("productos");
+            File file = new File("productos.txt");
             if(file.exists()){
                 FileInputStream in = new FileInputStream(file);
                 ObjectInputStream entrada = new ObjectInputStream(in);

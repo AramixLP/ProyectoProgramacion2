@@ -12,15 +12,15 @@ public class Producto implements Serializable
     protected int cantidadInicial;
     protected final double porcentajeGanancia = 0.15;
     public static final String prefijo = "PR";
-    public static int consecutivo = 1000;
+    public static int consecutivo = 0;
 
     public Producto(double costo, int codigo, String nombre, int cantidad, int cantidadInicial) {
         this.costo = costo;
-        this.codigo = prefijo + "-"+ consecutivo;
+        this.codigo = prefijo + "-"+ (codigo+consecutivo);
         this.nombre = nombre;
         this.cantidad = cantidad;
         this.cantidadInicial = cantidadInicial;
-        
+        consecutivo++;
     }
 
     public double getCosto() {

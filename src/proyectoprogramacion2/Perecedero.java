@@ -13,6 +13,7 @@ public class Perecedero extends Producto
         this.fechaExpiracion = fechaExp;
         this.temperatura = temperatura;
         this.costoAdicional = costoAdicional;
+        consecutivo++;
     }
 
     public String getFechaExpiracion() {

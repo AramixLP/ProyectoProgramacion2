@@ -256,11 +256,11 @@ public class controlInventario extends javax.swing.JFrame implements Serializabl
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 692, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 283, Short.MAX_VALUE)
+            .addGap(0, 469, Short.MAX_VALUE)
         );
 
         pack();
@@ -302,7 +302,7 @@ public class controlInventario extends javax.swing.JFrame implements Serializabl
     }//GEN-LAST:event_windowClosing
 
     private void jMenuItemGeneProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemGeneProductosActionPerformed
-         ReporteProductos r = new ReporteProductos();//inicializo ventana de reporte general de producto
+         ReporteGeneralProductos r = new ReporteGeneralProductos();//inicializo ventana de reporte general de producto
         r.setVisible(true);//para que se vea la ventana
     }//GEN-LAST:event_jMenuItemGeneProductosActionPerformed
 
