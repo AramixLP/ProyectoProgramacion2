@@ -134,7 +134,6 @@ public class ReporteProductos extends javax.swing.JFrame {
           
           String texto= "----------REPORTE PRODUCTOS-----------\n";
                   
-                  
           for (Producto p: productos){
                texto +="\nCodigo: "+p.getCodigo()+"\tProducto: "+p.getNombre()+"\tExistencia: "+p.getCantidad();
           }
@@ -147,14 +146,15 @@ public class ReporteProductos extends javax.swing.JFrame {
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         try{
             File file = new File("productos");
-            if(file.exists()){
+            //if(file.exists()){
                 FileInputStream in = new FileInputStream(file);
                 ObjectInputStream entrada = new ObjectInputStream(in);
                 
                 productos = (ArrayList<Producto>)entrada.readObject();
                 
                 entrada.close();
-            }else{
+            //}else
+                {
                 throw new Exception();
             }
         }catch(Exception e){

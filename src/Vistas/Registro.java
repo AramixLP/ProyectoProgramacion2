@@ -276,7 +276,7 @@ public class Registro extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
                     .addComponent(cmbProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAgregar)
                     .addComponent(btnModificar))
@@ -301,9 +301,9 @@ public class Registro extends javax.swing.JFrame {
             double costo = Double.parseDouble(txtCosto.getText());
                 //String tipo = cmbTipo.getSelectedItem().toString();
 
-            if (cmbTipo.equals("Producto")) {
+            if (cmbTipo.equals(" Producto")) {
                 productos.add(new Producto(costo, codigo, nombre, cantidad, cantidadInicial));
-            } else if (cmbTipo.equals("Perecedero")) {
+            } else if (cmbTipo.equals(" Perecedero")) {
                 String fechaExp = txtFechaExp.getText();
                 Double temperatura = Double.parseDouble(txtTemperatura.getText());
                 Double costoAdicional = Double.parseDouble(txtCostoAdicional.getText());
@@ -317,12 +317,12 @@ public class Registro extends javax.swing.JFrame {
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         try {
-            File file = new File("productos");
+            File file = new File("productos.txt");
             if (file.exists()) {
                 FileInputStream in = new FileInputStream(file);
                 ObjectInputStream entrada = new ObjectInputStream(in);
                 productos = (ArrayList<Producto>) entrada.readObject();
-
+                
                 entrada.close();
             } else {
                 throw new Exception();
@@ -335,12 +335,11 @@ public class Registro extends javax.swing.JFrame {
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         try {
 
-            File file = new File("productos");
+            File file = new File("productos.txt");
             FileOutputStream in = new FileOutputStream(file);
             ObjectOutputStream salida = new ObjectOutputStream(in);
 
             salida.writeObject(productos);
-
             salida.close();
 
         } catch (Exception e) {
@@ -366,12 +365,6 @@ public class Registro extends javax.swing.JFrame {
 
     private void cmbTipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbTipoActionPerformed
         updateState();
-
-        //if (cmbTipo) {
-        //    txtFechaExp.setEditable(true);
-        //    txtTemperatura.setEditable(true);
-        //    txtCostoAdicional.setEditable(true);
-        //}
     }//GEN-LAST:event_cmbTipoActionPerformed
 
     private void txtCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodigoActionPerformed
