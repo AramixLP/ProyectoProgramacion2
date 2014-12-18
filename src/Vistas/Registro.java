@@ -19,7 +19,6 @@ import proyectoprogramacion2.Proveedor;
 public class Registro extends javax.swing.JFrame {
 
     private ArrayList<Producto> productos = new ArrayList();
-    int consecutivo = 1000;
     /**
      * Creates new form Registro
      */
@@ -290,7 +289,7 @@ public class Registro extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
-
+    try {
         if (this.validaCampos()) {//pone a validar el metodo para valdiar los campos en blanco
             int codigo = Integer.parseInt(txtCodigo.getText());
             String nombre = txtNombre.getText();
@@ -302,18 +301,18 @@ public class Registro extends javax.swing.JFrame {
 
             if (cmbTipo.getSelectedItem().toString().equalsIgnoreCase("Producto")) {
                 productos.add(new Producto(costo, codigo, nombre, cantidad, cantidadInicial));
-                //consecutivo++;
             } else if (cmbTipo.getSelectedItem().toString().equalsIgnoreCase("Perecedero")) {
                 String fechaExp = txtFechaExp.getText();
                 Double temperatura = Double.parseDouble(txtTemperatura.getText());
                 Double costoAdicional = Double.parseDouble(txtCostoAdicional.getText());
                 productos.add(new Perecedero(fechaExp, temperatura, costoAdicional, costo, codigo, nombre, cantidadInicial, cantidad));
-                //consecutivo++;
             }
         } else {
             JOptionPane.showMessageDialog(null, "Debe llenar los campos en blanco");//muestra mensaje cuando queda en blanco los espacios
         }
-
+    }catch (NumberFormatException ex) {
+        JOptionPane.showMessageDialog(null, "Asegurese de escribir solo numeros o letras segun corresponda.");
+    }
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
